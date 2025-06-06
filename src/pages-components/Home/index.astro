@@ -1,0 +1,22 @@
+---
+import Main from "@/layouts/main.astro";
+import CtaSection from "./components/CtaSection.astro";
+import FeaturesSection from "./components/FeaturesSection.astro";
+import Hero from "./components/Hero.astro";
+import MobileCallToAction from "./components/MobileCallToAction.astro";
+import TestimonialsSection from "./components/TestimonialsSection.astro";
+import WhatWeDo from "./components/WhatWeDo.astro";
+
+const pageContent = {
+  description: "Abogados especializados en Derecho Empresarial y Corporativo",
+};
+---
+
+<Main content={pageContent}>
+  <Hero />
+  <WhatWeDo />
+  <FeaturesSection />
+  <TestimonialsSection />
+  <CtaSection />
+  <MobileCallToAction />
+</Main>

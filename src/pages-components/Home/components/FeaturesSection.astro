@@ -1,0 +1,106 @@
+---
+import {
+  CreditCard,
+  DollarSign,
+  MapPin,
+  Package,
+  Receipt,
+  Users,
+} from "lucide-react";
+
+const features = [
+  {
+    title: "Registra tus ventas y gastos",
+    description:
+      "Controla todas tus transacciones financieras en un solo lugar con Kosmo. Obtén reportes detallados para tomar mejores decisiones.",
+    icon: DollarSign,
+  },
+  {
+    title: "Arqueo de caja rápido y preciso",
+    description:
+      "Haz cierres de caja de forma eficiente con conciliación automática y detección de errores en tiempo real.",
+    icon: CreditCard,
+  },
+  {
+    title: "Gestión de inventario en tiempo real",
+    description:
+      "Administra tu inventario fácilmente, recibe alertas de bajo stock y rastrea ingredientes por receta.",
+    icon: Package,
+  },
+  {
+    title: "Reportes automáticos todos los días",
+    description:
+      "Revisa el rendimiento diario de tu restaurante, incluyendo ventas, platos más vendidos y métricas clave.",
+    icon: Receipt,
+  },
+  {
+    title: "Control de mesas con plano interactivo",
+    description:
+      "Organiza tu salón con un mapa visual y permite a tus meseros enviar comandas desde el móvil.",
+    icon: Users,
+  },
+  {
+    title: "Pedidos a domicilio integrados",
+    description:
+      "Gestiona tus domicilios de forma eficiente, con control de stock exclusivo y seguimiento de entregas.",
+    icon: MapPin,
+  },
+  {
+    title: "Impresión automática en cocina",
+    description:
+      "Kosmo imprime comandas directamente en la cocina sin necesidad de intervención manual.",
+    icon: Receipt,
+  },
+  {
+    title: "Base de datos de clientes",
+    description:
+      "Guarda el historial de compras de tus clientes y mejora su experiencia con recomendaciones personalizadas.",
+    icon: Users,
+  },
+];
+---
+
+<section
+  id="features"
+  class="py-20 bg-gray-50"
+  aria-labelledby="features-heading"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-16">
+      <h2
+        id="features-heading"
+        class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+      >
+        Funcionalidades clave para restaurantes exitosos
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Kosmo reúne las herramientas esenciales para optimizar la operación,
+        aumentar ventas y mejorar la atención al cliente.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        features.map((feature, index) => (
+          <article
+            class="border-0 shadow-lg hover:shadow-xl transition-shadow rounded-xl bg-white p-4"
+            aria-labelledby={`feature-${index}-title`}
+          >
+            <header>
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <feature.icon className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3
+                id={`feature-${index}-title`}
+                class="text-lg font-semibold text-gray-900"
+              >
+                {feature.title}
+              </h3>
+            </header>
+            <p class="text-gray-600 mt-2">{feature.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

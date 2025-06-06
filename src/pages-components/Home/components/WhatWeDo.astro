@@ -1,0 +1,41 @@
+---
+import EditTable from "@/images/deal.jpg";
+import { Picture } from "astro:assets";
+---
+
+<section class="py-16 bg-white flex flex-col gap-8" aria-labelledby="about-us" id="about-us">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      <div class="md:w-1/2 mb-8 md:mb-0 flex justify-end">
+        <Picture
+          src={EditTable}
+          alt="Trato de abogados"
+          width={600}
+          height={370}
+          class="rounded-lg shadow-lg"
+          loading="eager"
+        />
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold mb-4 text-primary">
+          ¿Qué hacemos?
+        </h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Transmitir bajo un lenguaje cómodo y amigable alternativas de gestión
+          innovadoras, frescas y actuales que respondan a una necesidad
+          jurídica, <b>aportando juntos valor </b> a través de un asesoramiento y
+          gestión integral que garantice entendimiento y confianza a nuestros clientes.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          Nuestro <b>Core Business </b>se encuentra direccionado a proteger tu
+          activo más valioso, ¡Tus sueños!.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-lg font-bold mb-4 text-primary text-center">
+      ¡Contar con un aliado jurídico es muy importante!
+    </h2>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+---
+import Logo from "@/images/logo.png";
+import { Image } from "astro:assets";
+import { Globe, Phone, Instagram } from "lucide-react";
+---
+
+<footer id="contact" class="bg-primary text-white py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <Image
+            src={Logo}
+            alt="Kosmo Logo"
+            width={72}
+            height={72}
+            class="rounded-lg w-9 h-9"
+          />
+          <span class="text-xl font-bold">Ambiente Legal</span>
+        </div>
+        <p class="text-gray-400 mb-4">
+          Abogados especializados en Derecho Empresarial y Corporativo
+        </p>
+        {
+          (
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/ambientelegalco/"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          )
+        }
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-4">Menu</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li>
+            <a href="#features" class="hover:text-white transition-colors">
+              Características
+            </a>
+          </li>
+          <li>
+            <a href="#pricing" class="hover:text-white transition-colors">
+              Precios
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/sanji-pos/starter/releases/latest/download/kosmo-gateway.exe"
+              class="hover:text-white transition-colors"
+            >
+              Descargar
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-4">Contacto</h3>
+        <ul class="space-y-2 text-gray-400">
+          {
+            /* <li class="flex items-center">
+            <Mail className="w-4 h-4 mr-2" />
+            info@kosmopos.com
+          </li> */
+          }
+          <li class="flex items-center">
+            <Phone className="w-4 h-4 mr-2" />
+            <a
+              href="tel:+573154395316"
+              class="hover:text-white transition-colors"
+            >
+              +57 315 439 5316
+            </a>
+          </li>
+          <li class="flex items-center">
+            <Globe className="w-4 h-4 mr-2" />
+            <a
+              href="https://ambientelegal.co"
+              class="hover:text-white transition-colors"
+            >
+              ambientelegal.co
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+    >
+      <p class="text-gray-400 text-sm">
+        © {new Date().getFullYear()} Ambiente Legal. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

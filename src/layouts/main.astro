@@ -1,0 +1,88 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import { ThemeProvider } from "@/components/theme-provider";
+import "../styles/global.css";
+
+interface Props {
+  content?: {
+    title?: string;
+    description?: string;
+    canonicalUrl?: string;
+    image?: string;
+    type?: string;
+  };
+}
+
+const { content = {} } = Astro.props as Props;
+
+const title = content?.title ?? "Ambiente Legal - Abogados & Consultores";
+const description =
+  content?.description ??
+  "Abogados especializados en Derecho Empresarial y Corporativo";
+const canonicalUrl = content?.canonicalUrl ?? Astro.url.pathname;
+const image = content?.image ?? "/images/logo.png";
+const type = content?.type ?? "website";
+
+const siteUrl = Astro.url.origin;
+const fullUrl = new URL(canonicalUrl, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="abogados, consultores, derecho empresarial, corporativo"
+    />
+    <meta name="author" content="Ambiente Legal" />
+
+    <link rel="canonical" href={fullUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ambiente Legal" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={fullUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ambiente Legal",
+        "description": "Abogados especializados en Derecho Empresarial y Corporativo",
+        "applicationCategory": "Legal"
+      }
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div class="min-h-screen bg-white">
+        <Header />
+        <slot />
+        <Footer />
+      </div>
+    </ThemeProvider>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+---
+import { Button } from "@/components/ui/button";
+---
+
+<section class="py-20 lg:py-32 bg-[#f9f3e6]" aria-labelledby="hero-heading">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center">
+      <div class="w-full lg:pr-12 mb-10 lg:mb-0 text-center">
+        <h1
+          id="hero-heading"
+          class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"
+        >
+          Abogados especializados en
+          <span class="bg-clip-text text-primary">
+            Derecho Empresarial y Corporativo
+          </span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-gray-700 mb-8">
+          Nos dedicamos a blindar, proteger y aportar a la creación segura y
+          confiable de tus sueños, construyendo relaciones de largo plazo con el
+          mundo.
+        </p>
+
+        <nav aria-label="Llamadas a la acción">
+          <ul class="flex flex-col sm:flex-row gap-4 justify-center">
+            <li>
+              <a
+                href="https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Solicitar una demo gratuita de Kosmo POS por WhatsApp"
+                title="Solicita una demo de Kosmo POS"
+                class="cursor-pointer"
+              >
+                <Button
+                  size="lg"
+                  className="cursor-pointer bg-primary hover:bg-primary text-lg px-8 py-3"
+                >
+                  Agendar una cita
+                </Button>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import MasterRibs from "@/images/master_ribs.png";
+import PolloPalBarrio from "@/images/pollo_pal_barrio.jpg";
+import Quickiri from "@/images/quickiri.jpg";
+import { Picture } from "astro:assets";
+
+const restaurants = [
+  {
+    image: PolloPalBarrio,
+    url: "https://www.instagram.com/pollopalbarrio/",
+    name: "Pollo Pal Barrio",
+  },
+  {
+    image: MasterRibs,
+    url: "https://www.instagram.com/masterribsandwings/",
+    name: "Master Ribs & Wings",
+  },
+  {
+    image: Quickiri,
+    url: "https://www.instagram.com/quickiri_/",
+    name: "Quickiri",
+  },
+];
+---
+
+<section
+  id="testimonials"
+  class="py-20 bg-white"
+  aria-labelledby="friends-heading"
+  role="region"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-16">
+      <h2
+        id="friends-heading"
+        class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+      >
+        Algunos de nuestros clientes
+      </h2>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        restaurants.map((restaurant) => (
+          <a
+            href={restaurant.url}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            aria-label={`Visitar Instagram de ${restaurant.name}`}
+            class="flex flex-col items-center justify-center text-center"
+          >
+            <Picture
+              src={restaurant.image}
+              alt={`Logo y fachada de ${restaurant.name}`}
+              width={300}
+              height={300}
+              class="rounded-full w-56 h-56 border-4 border-black object-cover"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

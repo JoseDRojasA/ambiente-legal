@@ -1,0 +1,49 @@
+---
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Ambiente legal",
+  url: "https://ambientelegal.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target:
+      "https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20quiero%20ver%20una%20demo%20de%20Ambiente legal",
+    query: "Solicitar ayuda de Ambiente legal",
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<nav
+  class="flex md:hidden sticky bottom-0 left-0 bg-white py-4 px-5 border-t border-gray-200"
+  aria-label="Acceso rápido a solicitud de demo"
+>
+  <a
+    href="https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20quiero%20ver%20una%20demo%20de%20Ambiente legal"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    aria-label="Solicitar una cotización de Ambiente legal por WhatsApp. Se abrirá en una nueva pestaña."
+    title="Solicita una cotización de Ambiente legal"
+    class="cursor-pointer w-full"
+    data-cta="mobile-demo-request"
+    itemscope
+    itemtype="https://schema.org/ContactPoint"
+  >
+    <meta itemprop="contactType" content="customer service" />
+    <meta itemprop="availableLanguage" content="es" />
+    <meta itemprop="telephone" content="+573154395316" />
+
+    <Button
+      size="lg"
+      className="cursor-pointer bg-primary hover:bg-primary text-lg px-8 py-3 w-full"
+      aria-label="Solicitar ayuda de Ambiente legal"
+    >
+      <span itemprop="name">Agendar una cita</span>
+      <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
+    </Button>
+  </a>
+</nav>

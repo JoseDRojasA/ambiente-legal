@@ -1,0 +1,39 @@
+---
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+---
+
+<section
+  class="py-20 bg-gradient-to-r from-purple-600 to-blue-600"
+  aria-labelledby="kosmo-cta-title"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <header>
+      <h2
+        id="kosmo-cta-title"
+        class="text-3xl sm:text-4xl font-bold text-white mb-4"
+      >
+        Cuentanos ¿En qué podemos ayudarte?
+      </h2>
+    </header>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Solicitar una demo de Kosmo por WhatsApp"
+        aria-label="Solicitar una demo de Kosmo por WhatsApp"
+        class="cursor-pointer"
+      >
+        <Button
+          size="lg"
+          variant="secondary"
+          className="cursor-pointer text-lg px-8 py-3"
+        >
+          Agendar una cita <ArrowRight className="ml-2 w-5 h-5" />
+        </Button>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
 ---
-import Logo from "@/images/logo.png";
 import { MENU_ITEMS } from "@/constants/menu-items";
+import Logo from "@/images/logo.png";
 import { Image } from "astro:assets";
 import { Menu } from "lucide-react";
 ---
@@ -15,7 +15,6 @@ import { Menu } from "lucide-react";
         <span class="text-xl font-bold text-law-primary">Ambiente Legal</span>
       </div>
 
-      {/* Desktop Menu */}
       <div class="hidden md:flex items-center space-x-8">
         {
           MENU_ITEMS.map((item) => (
@@ -29,7 +28,6 @@ import { Menu } from "lucide-react";
         }
       </div>
 
-      {/* Mobile Menu Button */}
       <button
         id="menu-toggle"
         class="md:hidden cursor-pointer p-2 rounded-md text-law-text hover:text-law-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-law-primary"
@@ -41,7 +39,6 @@ import { Menu } from "lucide-react";
       </button>
     </div>
 
-    {/* Mobile Menu */}
     <div
       id="mobile-menu"
       class="hidden md:hidden bg-white border-t overflow-hidden transition-[max-height] duration-300 ease-in-out"
@@ -75,15 +72,15 @@ import { Menu } from "lucide-react";
     document.addEventListener("DOMContentLoaded", () => {
       const menuButton = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
-      const menuLinks = mobileMenu?.querySelectorAll('a[href]');
+      const menuLinks = mobileMenu?.querySelectorAll("a[href]");
 
       // Function to close the mobile menu
       const closeMobileMenu = () => {
         if (!mobileMenu) return;
-        
+
         menuButton?.setAttribute("aria-expanded", "false");
         mobileMenu.style.maxHeight = "0";
-        
+
         mobileMenu.addEventListener(
           "transitionend",
           () => {
@@ -98,9 +95,10 @@ import { Menu } from "lucide-react";
       if (menuButton && mobileMenu) {
         // Toggle menu when clicking the menu button
         menuButton.addEventListener("click", () => {
-          const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+          const isExpanded =
+            menuButton.getAttribute("aria-expanded") === "true";
           menuButton.setAttribute("aria-expanded", String(!isExpanded));
-          
+
           if (mobileMenu.classList.contains("hidden")) {
             mobileMenu.classList.remove("hidden");
             // Animate max-height to show smoothly
@@ -111,8 +109,8 @@ import { Menu } from "lucide-react";
         });
 
         // Close menu when clicking on a menu item
-        menuLinks?.forEach(link => {
-          link.addEventListener('click', closeMobileMenu);
+        menuLinks?.forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
         });
       }
     });

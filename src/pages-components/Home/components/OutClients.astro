@@ -55,10 +55,9 @@ const clientLogos = [
       </p>
     </div>
 
-    {/* Testimonios */}
     <div class="grid md:grid-cols-3 gap-8 mb-16">
       {
-        testimonials.map((testimonial, index) => (
+        testimonials.map((testimonial) => (
           <div class="bg-gray-50 p-6 rounded-xl relative">
             <Quote className="h-8 w-8 text-law-primary/20 absolute top-4 right-4" />
             <div class="flex mb-4">
@@ -79,14 +78,12 @@ const clientLogos = [
       }
     </div>
 
-    {/* Logos de clientes - Carousel infinito */}
     <div class="border-t border-gray-200 pt-12">
       <h3 class="text-center text-lg font-semibold text-gray-900 mb-8">
         Empresas que confían en nosotros
       </h3>
       <div class="relative overflow-hidden">
         <div class="flex animate-scroll">
-          {/* Primera serie de logos */}
           {
             clientLogos.map((logo) => (
               <div class="flex-shrink-0 w-48 mx-4">
@@ -96,7 +93,7 @@ const clientLogos = [
               </div>
             ))
           }
-          {/* Segunda serie de logos para el efecto infinito */}
+
           {
             clientLogos.map((logo) => (
               <div class="flex-shrink-0 w-48 mx-4">
@@ -110,7 +107,6 @@ const clientLogos = [
       </div>
     </div>
 
-    {/* Estadísticas */}
     <div class="grid md:grid-cols-4 gap-8 mt-16 text-center">
       <div>
         <div class="text-3xl font-bold text-law-primary mb-2">500+</div>

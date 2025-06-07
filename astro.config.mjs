@@ -34,6 +34,7 @@ export default defineConfig({
     }),
     favicons(),
   ],
+  base: "/ambiente-legal",
   site: "https://ambientelegal.co",
   outDir: "./docs",
   build: {

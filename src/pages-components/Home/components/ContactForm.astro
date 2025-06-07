@@ -10,19 +10,15 @@ import {
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 ---
 
-<script>
-  import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
-
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const handleWhatsAppRedirect = () => {
-      const message = document.getElementById(
-        "custom-query-message"
-      ) as HTMLTextAreaElement;
+      const message = document.getElementById("custom-query-message");
       const text =
         message?.value ||
         "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
-      const whatsappUrl = generateWhatsAppLink(text);
-      window.open(whatsappUrl, "_blank");
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/573154395316?text=${encodedText}`, "_blank");
     };
 
     document

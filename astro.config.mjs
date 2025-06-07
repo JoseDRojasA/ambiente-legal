@@ -36,6 +36,7 @@ export default defineConfig({
   ],
   base: "./",
   site: "https://ambientelegal.co",
+  outDir: "./docs",
   build: {
     assets: "assets",
   },

@@ -57,27 +57,25 @@ const handleWhatsAppRedirect = () => {
     </div>
 
     <div class="grid lg:grid-cols-2 gap-12">
-      <div>
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-2xl text-gray-900"
-              >¿En qué podemos ayudarte?</CardTitle
-            >
-            <CardDescription className="text-law-text">
-              Cuéntanos sobre tu situación y te contactaremos inmediatamente por
-              WhatsApp
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <CustomQuery client:load />
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-2xl text-gray-900"
+            >¿En qué podemos ayudarte?</CardTitle
+          >
+          <CardDescription className="text-law-text">
+            Cuéntanos sobre tu situación y te contactaremos inmediatamente por
+            WhatsApp
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <CustomQuery client:load />
 
-            <p class="text-sm text-law-text text-center mt-6">
-              Te responderemos inmediatamente y programaremos una consulta
-              gratuita
-            </p>
-          </CardContent>
-        </Card>
-      </div>
+          <p class="text-sm text-law-text text-center mt-6">
+            Te responderemos inmediatamente y programaremos una consulta
+            gratuita
+          </p>
+        </CardContent>
+      </Card>
 
       {/* Información de contacto */}
       <div class="space-y-8">

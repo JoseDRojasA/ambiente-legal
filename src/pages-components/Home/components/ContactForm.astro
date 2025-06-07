@@ -61,8 +61,8 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
           <CustomQuery client:load />
 
           <p class="text-sm text-law-text text-center mt-6">
-            Te responderemos inmediatamente y programaremos una consulta
-            para asesorarte
+            Te responderemos inmediatamente y programaremos una consulta para
+            asesorarte
           </p>
         </CardContent>
       </Card>
@@ -76,28 +76,40 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
             <div class="space-y-4">
               <div class="flex items-start space-x-3">
                 <Phone className="h-6 w-6 text-law-primary mt-0.5" />
-                <div>
+                <a
+                  href="tel:+573154395316"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
                   <div class="font-medium text-gray-900">Teléfono</div>
                   <div class="text-law-text">+57 315 439 5316</div>
-                </div>
+                </a>
               </div>
               <div class="flex items-start space-x-3">
                 <Mail className="h-6 w-6 text-law-primary mt-0.5" />
-                <div>
+                <a
+                  href="mailto:ambientelegalco@gmail.com"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
                   <div class="font-medium text-gray-900">Email</div>
                   <div class="text-law-text">ambientelegalco@gmail.com</div>
-                </div>
+                </a>
               </div>
               <div class="flex items-start space-x-3">
                 <MapPin className="h-6 w-6 text-law-primary mt-0.5" />
-                <div>
+                <a
+                  href="https://maps.app.goo.gl/JXf9XL9AmBTrwToQA"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
                   <div class="font-medium text-gray-900">Dirección</div>
                   <div class="text-law-text">
                     Ecoparque empresarial natura, Torre 3, Oficina 246
                     <br />
                     Bucaramanga, Colombia
                   </div>
-                </div>
+                </a>
               </div>
               <div class="flex items-start space-x-3">
                 <Clock className="h-6 w-6 text-law-primary mt-0.5" />

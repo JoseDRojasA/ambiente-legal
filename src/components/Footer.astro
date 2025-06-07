@@ -1,6 +1,8 @@
 ---
 import { MENU_ITEMS } from "@/constants/menu-items";
-import { Mail, MapPin, MessageCircle, Phone, Scale } from "lucide-react";
+import Logo from "@/images/logo.png";
+import { Image } from "astro:assets";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 ---
 
 <footer class="bg-law-primary text-law-button-text">
@@ -9,7 +11,13 @@ import { Mail, MapPin, MessageCircle, Phone, Scale } from "lucide-react";
       <!-- Logo y descripción -->
       <div class="space-y-4">
         <div class="flex items-center space-x-2">
-          <Scale className="h-8 w-8" />
+          <Image
+            src={Logo}
+            alt="Logo"
+            class="h-8 w-8"
+            loading="eager"
+            decoding="async"
+          />
           <span class="text-xl font-bold">Ambiente Legal</span>
         </div>
         <p class="text-law-button-text/80 text-sm">
@@ -57,8 +65,8 @@ import { Mail, MapPin, MessageCircle, Phone, Scale } from "lucide-react";
           <div class="flex items-start space-x-2">
             <MapPin className="h-4 w-4 mt-0.5" />
             <span>
-              Carrera 11 #93-07, Oficina 501<br />
-              Bogotá, Colombia
+              Ecoparque empresarial natura, Torre 3, Oficina 246<br />
+              Bucaramanga, Colombia
             </span>
           </div>
         </div>

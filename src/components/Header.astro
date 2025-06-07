@@ -1,13 +1,6 @@
 ---
+import { MENU_ITEMS } from "@/constants/menu-items";
 import { Menu, Scale } from "lucide-react";
-
-const menuItems = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#sobre-nosotros", label: "Sobre Nosotros" },
-  { href: "#areas-practica", label: "Áreas de Práctica" },
-  { href: "#clientes", label: "Nuestros Clientes" },
-  { href: "#contacto", label: "Contacto" },
-];
 ---
 
 <nav
@@ -23,7 +16,7 @@ const menuItems = [
       {/* Desktop Menu */}
       <div class="hidden md:flex items-center space-x-8">
         {
-          menuItems.map((item) => (
+          MENU_ITEMS.map((item) => (
             <a
               href={item.href}
               class="text-law-text hover:text-law-primary transition-colors font-medium"
@@ -54,7 +47,7 @@ const menuItems = [
     >
       <div class="px-2 pt-2 pb-3 space-y-1">
         {
-          menuItems.map((item) => (
+          MENU_ITEMS.map((item) => (
             <a
               href={item.href}
               class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"

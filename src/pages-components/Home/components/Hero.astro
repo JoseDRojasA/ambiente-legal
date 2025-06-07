@@ -1,13 +1,9 @@
 ---
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Users, Award, Scale } from "lucide-react";
-
-const scrollToContact = () => {
-  const element = document.getElementById("contacto");
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+import DealImage from "@/images/Deal.jpg";
+import { Image } from "astro:assets";
+import { Award, Shield, Users } from "lucide-react";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 ---
 
 <section id="inicio" class="pt-16 bg-gradient-to-br from-gray-50 to-white">
@@ -35,25 +31,19 @@ const scrollToContact = () => {
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <Button
-            onClick={scrollToContact}
-            size="lg"
-            className="bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3"
+          <a
+            href={generateWhatsAppLink(
+              "¡Hola! Tengo una consulta urgente, ¿pueden ayudarme?"
+            )}
+            target="_blank"
           >
-            Consulta Gratuita
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() =>
-              document
-                .getElementById("sobre-nosotros")
-                ?.scrollIntoView({ behavior: "smooth" })}
-            className="text-law-primary border-law-primary hover:bg-law-primary/5 text-lg px-8 py-3"
-          >
-            Conocer Más
-          </Button>
+            <Button
+              size="lg"
+              className="bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3 cursor-pointer"
+            >
+              Consulta Gratuita
+            </Button>
+          </a>
         </div>
 
         <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
@@ -77,12 +67,14 @@ const scrollToContact = () => {
 
       <div class="relative">
         <div
-          class="aspect-square bg-gradient-to-br from-law-primary/20 to-law-primary/5 rounded-2xl p-8"
+          class="aspect-square bg-gradient-to-br from-law-primary/20 to-law-primary/5 rounded-2xl"
         >
-          <img
-            src="/placeholder.svg?height=600&width=600"
+          <Image
+            src={DealImage}
             alt="Equipo de abogados profesionales"
             class="w-full h-full object-cover rounded-xl shadow-2xl"
+            loading="eager"
+            decoding="async"
           />
         </div>
       </div>

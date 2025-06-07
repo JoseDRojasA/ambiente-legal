@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { CheckCircle, Eye, Heart, Target } from "lucide-react";
+import HandsImage from "@/images/hands.jpg";
 ---
 
 <section id="sobre-nosotros" class="py-20 bg-white">
@@ -76,9 +78,9 @@ import { CheckCircle, Eye, Heart, Target } from "lucide-react";
       </div>
 
       <div class="relative">
-        <img
-          src="/placeholder.svg?height=500&width=600"
-          alt="Oficina moderna de abogados"
+        <Image
+          src={HandsImage}
+          alt="Apretón de manos de abogados"
           class="w-full h-96 object-cover rounded-xl shadow-lg"
         />
       </div>

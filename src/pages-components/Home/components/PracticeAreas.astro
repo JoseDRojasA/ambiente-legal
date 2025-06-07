@@ -170,10 +170,10 @@ const goToContact = () => {
             <div class="grid gap-4">
               {area.subareas.map((subarea) => (
                 <Card
-                  className="border-l-4 border-l-law-primary practice-card cursor-pointer relative"
+                  className="border-l-4 border-l-law-primary practice-card cursor-pointer relative gap-4"
                   onClick={() => handleWhatsAppRedirect(subarea.title)}
                 >
-                  <CardHeader className="pb-3">
+                  <CardHeader>
                     <CardTitle className="flex items-center text-lg">
                       <Users className="h-5 w-5 text-law-primary mr-2" />
                       {subarea.title}

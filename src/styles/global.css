@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   /* Colores personalizados para la firma de abogados */
   --color-law-primary: #2d2945;

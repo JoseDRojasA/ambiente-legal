@@ -7,15 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const handleWhatsAppRedirect = () => {
   const message = document.getElementById("message") as HTMLTextAreaElement;
-  const phoneNumber = "573154395316";
   const text =
     message?.value ||
     "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+  const whatsappUrl = generateWhatsAppLink(text);
   window.open(whatsappUrl, "_blank");
 };
 ---
@@ -60,7 +60,7 @@ const handleWhatsAppRedirect = () => {
           </div>
 
           <Button
-            onClick={handleWhatsAppRedirect}
+            onClick={() => handleWhatsAppRedirect()}
             className="w-full bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg py-3"
             size="lg"
           >
@@ -126,21 +126,15 @@ const handleWhatsAppRedirect = () => {
         <Card className="bg-law-primary text-law-button-text">
           <CardContent className="p-6 text-center">
             <MessageCircle className="h-12 w-12 mx-auto mb-4" />
-            <h3 class="text-xl font-bold text-gray-900 mb-4">
+            <h3 class="text-xl font-bold text-law-button-text mb-4">
               ¿Necesitas asesoría legal especializada?
             </h3>
-            <p class="text-law-text mb-6">
+            <p class="text-law-button-text mb-6">
               Realizamos tu diagnóstico jurídico para conocer a profundidad tu
               situación y necesidad legal. ¡Queremos ser tu aliado!
             </p>
             <Button
-              onClick={() => {
-                const phoneNumber = "573154395316";
-                const text =
-                  "¡Hola! Tengo una consulta urgente, ¿pueden ayudarme?";
-                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-                window.open(whatsappUrl, "_blank");
-              }}
+              onClick={() => handleWhatsAppRedirect()}
               variant="secondary"
               className="bg-white text-law-primary hover:bg-gray-100"
             >

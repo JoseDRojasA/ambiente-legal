@@ -13,18 +13,18 @@ import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 <script>
   import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 
-  const handleWhatsAppRedirect = () => {
-    const message = document.getElementById(
-      "custom-query-message"
-    ) as HTMLTextAreaElement;
-    const text =
-      message?.value ||
-      "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
-    const whatsappUrl = generateWhatsAppLink(text);
-    window.open(whatsappUrl, "_blank");
-  };
-
   document.addEventListener("DOMContentLoaded", () => {
+    const handleWhatsAppRedirect = () => {
+      const message = document.getElementById(
+        "custom-query-message"
+      ) as HTMLTextAreaElement;
+      const text =
+        message?.value ||
+        "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
+      const whatsappUrl = generateWhatsAppLink(text);
+      window.open(whatsappUrl, "_blank");
+    };
+
     document
       .getElementById("simple-button")
       ?.addEventListener("click", handleWhatsAppRedirect);

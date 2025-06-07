@@ -1,0 +1,89 @@
+---
+import { Button } from "@/components/ui/button";
+import CloudsImage from "@/images/clouds.jpg";
+import { Image } from "astro:assets";
+import { Award, Shield, Users } from "lucide-react";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
+---
+
+<section id="inicio" class="relative pt-16 overflow-hidden">
+  {/* Background Image with Overlay */}
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent md:bg-gradient-to-r md:from-white md:via-white/95 md:via-25% md:to-transparent via-5%"
+    >
+    </div>
+    <Image
+      src={CloudsImage}
+      alt="Equipo de abogados profesionales"
+      class="w-full h-full object-cover object-left"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <div
+    class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 min-h-[600px] lg:min-h-[700px] flex items-center"
+  >
+    <div
+      class="max-w-2xl space-y-8 bg-white/80 backdrop-blur-sm p-8 rounded-xl lg:bg-transparent lg:backdrop-blur-none lg:p-0"
+    >
+      <div class="space-y-4">
+        <div
+          class="inline-block rounded-lg bg-law-primary/10 px-3 py-1 text-sm font-medium text-law-primary"
+        >
+          El vehículo estratégico entre tus sueños y el derecho
+        </div>
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+        >
+          Protegemos tu activo más valioso:
+          <span class="text-law-primary"> ¡Tus Sueños!</span>
+        </h1>
+        <p class="text-xl text-law-text leading-relaxed max-w-2xl">
+          Somos abogados especializados en Derecho Empresarial y Corporativo,
+          dedicados a blindar, proteger y aportar a la creación segura y
+          confiable de tus sueños, construyendo relaciones de largo plazo con el
+          mundo.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href={generateWhatsAppLink(
+            "¡Hola! Tengo una consulta urgente, ¿pueden ayudarme?"
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            size="lg"
+            className="bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3 cursor-pointer"
+          >
+            Consulta Gratuita
+          </Button>
+        </a>
+      </div>
+
+      <div
+        class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200 bg-white/80 p-4 rounded-lg"
+      >
+        <div class="text-center">
+          <Shield className="h-8 w-8 text-law-primary mx-auto mb-2" />
+          <div class="text-2xl font-bold text-gray-900">20+</div>
+          <div class="text-sm text-law-text">Años de Experiencia</div>
+        </div>
+        <div class="text-center">
+          <Users className="h-8 w-8 text-law-primary mx-auto mb-2" />
+          <div class="text-2xl font-bold text-gray-900">500+</div>
+          <div class="text-sm text-law-text">Clientes Satisfechos</div>
+        </div>
+        <div class="text-center">
+          <Award className="h-8 w-8 text-law-primary mx-auto mb-2" />
+          <div class="text-2xl font-bold text-gray-900">98%</div>
+          <div class="text-sm text-law-text">Casos Exitosos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

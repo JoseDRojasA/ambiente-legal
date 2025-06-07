@@ -9,16 +9,17 @@ import {
 } from "@/components/ui/card";
 import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 import {
-  Briefcase,
   Building2,
+  Ellipsis,
   Gavel,
-  Home,
   Landmark,
+  MapPin,
   MessageCircle,
-  Scale,
-  Shield,
+  NotepadText,
+  PencilLine,
+  Star,
   User,
-  Users,
+  Users2,
 } from "lucide-react";
 
 const areas = [
@@ -30,7 +31,7 @@ const areas = [
     subareas: [
       {
         title: "Asuntos Laborales",
-        icon: Users,
+        icon: Landmark,
         description:
           "Nada más importante que la correcta relación contractual EMPLEADORES - COLABORADORES.",
         details: [
@@ -44,7 +45,7 @@ const areas = [
       },
       {
         title: "Asuntos Comerciales",
-        icon: Briefcase,
+        icon: NotepadText,
         description:
           "Concretar alianzas estratégicas y comerciales para la consolidación de tus metas empresariales.",
         details: [
@@ -57,7 +58,7 @@ const areas = [
       },
       {
         title: "Asuntos Societarios y Corporativos",
-        icon: Shield,
+        icon: Users2,
         description:
           "Blindar jurídicamente tu patrimonio y tu empresa es un acto de cuidado a tu activo más valioso.",
         details: [
@@ -71,7 +72,7 @@ const areas = [
       },
       {
         title: "Propiedad Intelectual",
-        icon: Scale,
+        icon: Star,
         description:
           "Tu MARCA es un bien patrimonial importante para identificar tu producto o servicio en el mercado.",
         details: [
@@ -81,6 +82,15 @@ const areas = [
           "Procesos ante la SIC (Superintendencia de Industria y Comercio)",
           "Cobro y manejo de cartera (preventiva, prejurídica y jurídica)",
           "Asesoría en conciliaciones extrajudiciales",
+        ],
+      },
+      {
+        title: "Otros",
+        icon: Ellipsis,
+        details: [
+          "Cobro y manejo de cartera preventiva, prejurídica y jurídica",
+          "Asesoría legal en trámites de conciliaciones extrajudiciales en derecho.",
+          "Avalar documentos de implicaciones legales.",
         ],
       },
     ],
@@ -93,19 +103,19 @@ const areas = [
     subareas: [
       {
         title: "Sucesiones",
-        icon: Home,
+        icon: PencilLine,
         description:
           "¿Alguna vez te has preguntado qué sucede con los bienes que tenía quien acaba de fallecer? Nosotros te guiamos en todo el proceso sucesoral.",
       },
       {
         title: "Tutelas",
-        icon: Shield,
+        icon: Star,
         description:
           "¿Sientes que tus derechos no son respetados? Trabajamos en favor de tus derechos constitucionales fundamentales.",
       },
       {
         title: "Derecho Laboral",
-        icon: Users,
+        icon: Landmark,
         description:
           "¿Tienes dudas si tu despido fue sin justa causa? ¿Aún no pagan tus derechos prestacionales de retiro? ¡Representamos tus derechos como colaborador!",
       },
@@ -117,7 +127,7 @@ const areas = [
       },
       {
         title: "Asuntos Agrarios",
-        icon: Landmark,
+        icon: MapPin,
         details: [
           "Titulación de baldíos",
           "Extinción del derecho de dominio",
@@ -149,7 +159,7 @@ const areas = [
           <div class="space-y-6">
             <div class="text-center">
               <div class="inline-flex items-center justify-center w-16 h-16 bg-law-primary rounded-full mb-4">
-                <Building2 className="h-8 w-8 text-law-button-text" />
+                <area.icon className="h-8 w-8 text-law-button-text" />
               </div>
               <h3 class="text-2xl font-bold text-gray-900 mb-2">
                 {area.title}
@@ -168,13 +178,13 @@ const areas = [
                   <Card className="border-l-4 border-l-law-primary practice-card cursor-pointer relative gap-4">
                     <CardHeader>
                       <CardTitle className="flex items-center text-lg">
-                        <Users className="h-5 w-5 text-law-primary mr-2" />
+                        <subarea.icon className="h-5 w-5 text-law-primary mr-2" />
                         {subarea.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-law-text mb-3">
-                        {subarea.description}
+                        <b>{subarea.description}</b>
                       </CardDescription>
                       <ul class="text-sm text-law-text space-y-1">
                         {subarea.details?.map((detail) => (

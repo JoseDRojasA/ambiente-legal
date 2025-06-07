@@ -27,7 +27,7 @@ const areas = [
     title: "Personas Jurídicas",
     icon: Building2,
     description:
-      "En este mundo cambiante y competitivo, nos mantenemos como atletas de alto rendimiento, a la vanguardia para proteger tu empresa.",
+      "En este mundo cambiante y competitivo, nos mantenemos como atletas de alto rendimiento, en forma y a la vanguardia.",
     subareas: [
       {
         title: "Asuntos Laborales",
@@ -47,11 +47,11 @@ const areas = [
         title: "Asuntos Comerciales",
         icon: NotepadText,
         description:
-          "Concretar alianzas estratégicas y comerciales para la consolidación de tus metas empresariales.",
+          "El concretar alianzas estratégicas y comerciales nos ayuda en la consolidación de nuestras metas empresariales",
         details: [
           "Estructuración y revisión de modelos de contratos comerciales",
           "Redacción de escritos y recursos ante diferentes entidades",
-          "Auditoría a contratos con terceros",
+          "Auditoria a contratos con terceros que presten servicios a la empresa cliente.",
           "Constitución de establecimientos, sucursales, franquicias, agencias",
           "Estructuración de contratos de colaboración empresarial",
         ],
@@ -62,26 +62,25 @@ const areas = [
         description:
           "Blindar jurídicamente tu patrimonio y tu empresa es un acto de cuidado a tu activo más valioso.",
         details: [
-          "Asesoría en formas asociativas y estructura corporativa",
+          "Asesoría en las diferentes formas asociativas de constitución empresarial y la mejor estructura corporativa, conforme a las necesidades de nuestros clientes.",
           "Creación, transformación, fusión, escisión, disolución y liquidación",
           "Registros e inscripciones societarias",
           "Elaboración de actas de asamblea y junta directiva",
           "Movimientos accionarios internos",
           "Cambio de representante legal y revisor fiscal",
+          "Reformas estatutarias",
         ],
       },
       {
         title: "Propiedad Intelectual",
         icon: Star,
         description:
-          "Tu MARCA es un bien patrimonial importante para identificar tu producto o servicio en el mercado.",
+          "TU MARCA es tu bien patrimonial más importante, ya que sirve para identificar tu producto o servicio en el mercado.",
         details: [
           "Registro marcario",
           "Registro de patentes",
           "Registro de lemas comerciales",
           "Procesos ante la SIC (Superintendencia de Industria y Comercio)",
-          "Cobro y manejo de cartera (preventiva, prejurídica y jurídica)",
-          "Asesoría en conciliaciones extrajudiciales",
         ],
       },
       {
@@ -102,10 +101,17 @@ const areas = [
       "A diario se nos presentan situaciones jurídicas difíciles de abordar, muchas veces de entender o simplemente de concluir.",
     subareas: [
       {
-        title: "Sucesiones",
+        title:
+          "Proceso de insolvencia de persona natural comerciante y no comerciante",
         icon: PencilLine,
         description:
-          "¿Alguna vez te has preguntado qué sucede con los bienes que tenía quien acaba de fallecer? Nosotros te guiamos en todo el proceso sucesoral.",
+          "Recupera tu tranquilidad financiera y accede a todos los beneficios del proceso de insolvencia:",
+        details: [
+          "Suspensión de procesos judiciales",
+          "Suspensión de descuentos sobre salarios ",
+          "Protección del patrimonio personal y familiar.",
+          "Cambio de estatus en centrales de riesgos",
+        ],
       },
       {
         title: "Tutelas",
@@ -124,15 +130,6 @@ const areas = [
         icon: Gavel,
         description:
           "Creación, diligenciamiento y cobro de títulos valores. Expande tus conceptos jurídicos.",
-      },
-      {
-        title: "Asuntos Agrarios",
-        icon: MapPin,
-        details: [
-          "Titulación de baldíos",
-          "Extinción del derecho de dominio",
-          "Clarificación de la propiedad",
-        ],
       },
     ],
   },
@@ -171,14 +168,16 @@ const areas = [
               {area.subareas.map((subarea) => (
                 <a
                   href={generateWhatsAppLink(
-                    `Necesito asesoría sobre ${subarea.title}`
+                    `¡Hola! Quiero información sobre los servicios jurídicos de -Ambiente Legal-, me gustaría saber más sobre ${subarea.title}`
                   )}
                   target="_blank"
                 >
                   <Card className="border-l-4 border-l-law-primary practice-card cursor-pointer relative gap-4">
                     <CardHeader>
                       <CardTitle className="flex items-center text-lg">
-                        <subarea.icon className="h-5 w-5 text-law-primary mr-2" />
+                        <div class="">
+                          <subarea.icon className="h-5 w-5 text-law-primary mr-2" />
+                        </div>
                         {subarea.title}
                       </CardTitle>
                     </CardHeader>

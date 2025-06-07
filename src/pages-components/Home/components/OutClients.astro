@@ -1,0 +1,133 @@
+---
+import { Quote, Star } from "lucide-react";
+const testimonials = [
+  {
+    name: "María González",
+    position: "CEO, TechStart",
+    content:
+      "Excelente asesoría en la constitución de nuestra empresa. Su enfoque estratégico nos ayudó a estructurar el negocio de manera óptima desde el inicio.",
+    rating: 5,
+  },
+  {
+    name: "Carlos Rodríguez",
+    position: "Director, InnovateCorp",
+    content:
+      "Profesionales altamente capacitados que entienden las necesidades del empresario moderno. Su acompañamiento ha sido fundamental para nuestro crecimiento.",
+    rating: 5,
+  },
+  {
+    name: "Ana Martínez",
+    position: "Emprendedora",
+    content:
+      "Como persona natural, recibí una atención personalizada excepcional. Me guiaron paso a paso en el proceso de formalización de mi negocio.",
+    rating: 5,
+  },
+];
+
+const clientLogos = [
+  "TechStart",
+  "InnovateCorp",
+  "GlobalSolutions",
+  "NextGen",
+  "ProBusiness",
+  "SmartCorp",
+  "DigitalFlow",
+  "EcoVentures",
+  "FutureLink",
+  "DataSync",
+  "CloudTech",
+  "BizSolutions",
+  "MetaCore",
+  "AgileWorks",
+  "VisionPro",
+];
+---
+
+<section id="clientes" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestros Clientes
+      </h2>
+      <p class="text-xl text-law-text max-w-3xl mx-auto">
+        La confianza de nuestros clientes es nuestro mayor logro. Conoce lo que
+        dicen sobre nuestros servicios y cómo hemos contribuido a su éxito.
+      </p>
+    </div>
+
+    {/* Testimonios */}
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      {
+        testimonials.map((testimonial, index) => (
+          <div class="bg-gray-50 p-6 rounded-xl relative">
+            <Quote className="h-8 w-8 text-law-primary/20 absolute top-4 right-4" />
+            <div class="flex mb-4">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 text-yellow-400 fill-current"
+                />
+              ))}
+            </div>
+            <p class="text-law-text mb-4 italic">"{testimonial.content}"</p>
+            <div>
+              <div class="font-semibold text-gray-900">{testimonial.name}</div>
+              <div class="text-sm text-law-text">{testimonial.position}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Logos de clientes - Carousel infinito */}
+    <div class="border-t border-gray-200 pt-12">
+      <h3 class="text-center text-lg font-semibold text-gray-900 mb-8">
+        Empresas que confían en nosotros
+      </h3>
+      <div class="relative overflow-hidden">
+        <div class="flex animate-scroll">
+          {/* Primera serie de logos */}
+          {
+            clientLogos.map((logo) => (
+              <div class="flex-shrink-0 w-48 mx-4">
+                <div class="bg-gray-100 h-16 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors">
+                  <span class="text-law-text font-medium">{logo}</span>
+                </div>
+              </div>
+            ))
+          }
+          {/* Segunda serie de logos para el efecto infinito */}
+          {
+            clientLogos.map((logo) => (
+              <div class="flex-shrink-0 w-48 mx-4">
+                <div class="bg-gray-100 h-16 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors">
+                  <span class="text-law-text font-medium">{logo}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    {/* Estadísticas */}
+    <div class="grid md:grid-cols-4 gap-8 mt-16 text-center">
+      <div>
+        <div class="text-3xl font-bold text-law-primary mb-2">500+</div>
+        <div class="text-law-text">Clientes Atendidos</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-law-primary mb-2">98%</div>
+        <div class="text-law-text">Satisfacción del Cliente</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-law-primary mb-2">15+</div>
+        <div class="text-law-text">Años de Experiencia</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-law-primary mb-2">24/7</div>
+        <div class="text-law-text">Soporte Disponible</div>
+      </div>
+    </div>
+  </div>
+</section>

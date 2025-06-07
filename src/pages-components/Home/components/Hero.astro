@@ -1,48 +1,148 @@
----
-import { Button } from "@/components/ui/button";
----
+<section id="inicio" class="pt-16 bg-gradient-to-br from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <div
+            class="inline-block rounded-lg bg-law-primary/10 px-3 py-1 text-sm font-medium text-law-primary"
+          >
+            El vehículo estratégico entre tus sueños y el derecho
+          </div>
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+          >
+            Protegemos tu activo más valioso:
+            <span class="text-law-primary"> ¡Tus Sueños!</span>
+          </h1>
+          <p class="text-xl text-law-text leading-relaxed">
+            Somos abogados especializados en Derecho Empresarial y Corporativo,
+            dedicados a blindar, proteger y aportar a la creación segura y
+            confiable de tus sueños, construyendo relaciones de largo plazo con
+            el mundo.
+          </p>
+        </div>
 
-<section class="py-20 lg:py-32 bg-[#f9f3e6]" aria-labelledby="hero-heading">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row items-center">
-      <div class="w-full lg:pr-12 mb-10 lg:mb-0 text-center">
-        <h1
-          id="hero-heading"
-          class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#contacto"
+            class="inline-flex items-center justify-center bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3 rounded-md"
+          >
+            Consulta Gratuita
+            <svg
+              class="ml-2 h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a
+            href="#sobre-nosotros"
+            class="inline-flex items-center justify-center border border-law-primary text-law-primary hover:bg-law-primary/5 text-lg px-8 py-3 rounded-md"
+          >
+            Conocer Más
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+          <div class="text-center">
+            <svg
+              class="h-8 w-8 text-law-primary mx-auto mb-2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 11c0 1.657-2 3-2 3s-2-1.343-2-3a2 2 0 1 1 4 0z"></path>
+            </svg>
+            <div class="text-2xl font-bold text-gray-900">20+</div>
+            <div class="text-sm text-law-text">Años de Experiencia</div>
+          </div>
+          <div class="text-center">
+            <svg
+              class="h-8 w-8 text-law-primary mx-auto mb-2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87M16 3.13a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM21 3.13a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"
+              ></path>
+            </svg>
+            <div class="text-2xl font-bold text-gray-900">500+</div>
+            <div class="text-sm text-law-text">Clientes Satisfechos</div>
+          </div>
+          <div class="text-center">
+            <svg
+              class="h-8 w-8 text-law-primary mx-auto mb-2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 21h8M12 3v18m0 0l-4-4m4 4l4-4"></path>
+            </svg>
+            <div class="text-2xl font-bold text-gray-900">98%</div>
+            <div class="text-sm text-law-text">Casos Exitosos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="relative">
+        <div
+          class="aspect-square bg-gradient-to-br from-law-primary/20 to-law-primary/5 rounded-2xl p-8"
         >
-          Abogados especializados en
-          <span class="bg-clip-text text-primary">
-            Derecho Empresarial y Corporativo
-          </span>
-        </h1>
-
-        <p class="text-lg sm:text-xl text-gray-700 mb-8">
-          Nos dedicamos a blindar, proteger y aportar a la creación segura y
-          confiable de tus sueños, construyendo relaciones de largo plazo con el
-          mundo.
-        </p>
-
-        <nav aria-label="Llamadas a la acción">
-          <ul class="flex flex-col sm:flex-row gap-4 justify-center">
-            <li>
-              <a
-                href="https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20me%20gustaría%20agendar%20una%20cita"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Solicitar una demo gratuita de Kosmo POS por WhatsApp"
-                title="Solicita una demo de Kosmo POS"
-                class="cursor-pointer"
+          <img
+            src="/placeholder.svg?height=600&width=600"
+            alt="Equipo de abogados profesionales"
+            class="w-full h-full object-cover rounded-xl shadow-2xl"
+          />
+        </div>
+        <div
+          class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border"
+        >
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-law-primary rounded-full flex items-center justify-center"
+            >
+              <svg
+                class="h-6 w-6 text-law-button-text"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
               >
-                <Button
-                  size="lg"
-                  className="cursor-pointer bg-primary hover:bg-primary text-lg px-8 py-3"
-                >
-                  Agendar una cita
-                </Button>
-              </a>
-            </li>
-          </ul>
-        </nav>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16 8c0-2.21-1.79-4-4-4s-4 1.79-4 4v4a4 4 0 1 0 8 0V8z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">
+                Asesoría Especializada
+              </div>
+              <div class="text-sm text-law-text">Derecho Empresarial</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

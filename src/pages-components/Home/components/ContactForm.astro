@@ -1,0 +1,154 @@
+---
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
+
+const handleWhatsAppRedirect = () => {
+  const message = document.getElementById("message") as HTMLTextAreaElement;
+  const phoneNumber = "573154395316";
+  const text =
+    message?.value ||
+    "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, "_blank");
+};
+---
+
+<section id="contacto" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Contáctanos
+      </h2>
+      <p class="text-xl text-law-text max-w-3xl mx-auto">
+        ¿Necesitas asesoría legal? Estamos aquí para ayudarte. Contáctanos y
+        recibe una consulta gratuita para evaluar tu caso.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-2xl text-gray-900"
+            >¿En qué podemos ayudarte?</CardTitle
+          >
+          <CardDescription className="text-law-text">
+            Cuéntanos sobre tu situación y te contactaremos inmediatamente por
+            WhatsApp
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium text-gray-900 mb-2"
+            >
+              Describe tu consulta
+            </label>
+            <textarea
+              id="message"
+              rows={6}
+              placeholder="Ejemplo: Necesito asesoría para constituir una SAS, tengo dudas sobre los requisitos y documentos necesarios..."
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-law-primary focus:border-transparent resize-none"
+            ></textarea>
+          </div>
+
+          <Button
+            onClick={handleWhatsAppRedirect}
+            className="w-full bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg py-3"
+            size="lg"
+          >
+            <MessageCircle className="mr-2 h-5 w-5" />
+            Enviar Consulta por WhatsApp
+          </Button>
+
+          <p class="text-sm text-law-text text-center">
+            Te responderemos inmediatamente y programaremos una consulta
+            gratuita
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Información de contacto */}
+      <div class="space-y-8">
+        <Card>
+          <CardContent className="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">
+              Información de Contacto
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <Phone className="h-6 w-6 text-law-primary mt-0.5" />
+                <div>
+                  <div class="font-medium text-gray-900">Teléfono</div>
+                  <div class="text-law-text">+57 315 439 5316</div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <Mail className="h-6 w-6 text-law-primary mt-0.5" />
+                <div>
+                  <div class="font-medium text-gray-900">Email</div>
+                  <div class="text-law-text">ambientelegalco@gmail.com</div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <MapPin className="h-6 w-6 text-law-primary mt-0.5" />
+                <div>
+                  <div class="font-medium text-gray-900">Dirección</div>
+                  <div class="text-law-text">
+                    Carrera 11 #93-07, Oficina 501
+                    <br />
+                    Bogotá, Colombia
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <Clock className="h-6 w-6 text-law-primary mt-0.5" />
+                <div>
+                  <div class="font-medium text-gray-900">Horarios</div>
+                  <div class="text-law-text">
+                    Lunes a Viernes: 8:00 AM - 6:00 PM
+                    <br />
+                    Sábados: 9:00 AM - 1:00 PM
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-law-primary text-law-button-text">
+          <CardContent className="p-6 text-center">
+            <MessageCircle className="h-12 w-12 mx-auto mb-4" />
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              ¿Necesitas asesoría legal especializada?
+            </h3>
+            <p class="text-law-text mb-6">
+              Realizamos tu diagnóstico jurídico para conocer a profundidad tu
+              situación y necesidad legal. ¡Queremos ser tu aliado!
+            </p>
+            <Button
+              onClick={() => {
+                const phoneNumber = "573154395316";
+                const text =
+                  "¡Hola! Tengo una consulta urgente, ¿pueden ayudarme?";
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+                window.open(whatsappUrl, "_blank");
+              }}
+              variant="secondary"
+              className="bg-white text-law-primary hover:bg-gray-100"
+            >
+              WhatsApp Directo
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>

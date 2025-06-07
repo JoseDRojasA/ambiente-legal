@@ -1,0 +1,222 @@
+---
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Briefcase,
+  Building2,
+  Gavel,
+  Home,
+  Landmark,
+  MessageCircle,
+  Scale,
+  Shield,
+  User,
+  Users,
+} from "lucide-react";
+
+const areas = [
+  {
+    title: "Personas Jurídicas",
+    icon: Building2,
+    description:
+      "En este mundo cambiante y competitivo, nos mantenemos como atletas de alto rendimiento, a la vanguardia para proteger tu empresa.",
+    subareas: [
+      {
+        title: "Asuntos Laborales",
+        icon: Users,
+        description:
+          "Nada más importante que la correcta relación contractual EMPLEADORES - COLABORADORES.",
+        details: [
+          "Asesoría en creación de contratación laboral acorde a la estrategia corporativa",
+          "Asesoría en otorgamiento de beneficios extralegales",
+          "Trámite de novedades laborales (otrosís, preavisos, renovaciones, terminaciones)",
+          "Saneamiento de relaciones laborales anteriores",
+          "Atención en diligencias ante el Ministerio de Trabajo",
+          "Creación y revisión de Reglamento Interno de Trabajo",
+        ],
+      },
+      {
+        title: "Asuntos Comerciales",
+        icon: Briefcase,
+        description:
+          "Concretar alianzas estratégicas y comerciales para la consolidación de tus metas empresariales.",
+        details: [
+          "Estructuración y revisión de modelos de contratos comerciales",
+          "Redacción de escritos y recursos ante diferentes entidades",
+          "Auditoría a contratos con terceros",
+          "Constitución de establecimientos, sucursales, franquicias, agencias",
+          "Estructuración de contratos de colaboración empresarial",
+        ],
+      },
+      {
+        title: "Asuntos Societarios y Corporativos",
+        icon: Shield,
+        description:
+          "Blindar jurídicamente tu patrimonio y tu empresa es un acto de cuidado a tu activo más valioso.",
+        details: [
+          "Asesoría en formas asociativas y estructura corporativa",
+          "Creación, transformación, fusión, escisión, disolución y liquidación",
+          "Registros e inscripciones societarias",
+          "Elaboración de actas de asamblea y junta directiva",
+          "Movimientos accionarios internos",
+          "Cambio de representante legal y revisor fiscal",
+        ],
+      },
+      {
+        title: "Propiedad Intelectual",
+        icon: Scale,
+        description:
+          "Tu MARCA es un bien patrimonial importante para identificar tu producto o servicio en el mercado.",
+        details: [
+          "Registro marcario",
+          "Registro de patentes",
+          "Registro de lemas comerciales",
+          "Procesos ante la SIC (Superintendencia de Industria y Comercio)",
+          "Cobro y manejo de cartera (preventiva, prejurídica y jurídica)",
+          "Asesoría en conciliaciones extrajudiciales",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Personas Naturales",
+    icon: User,
+    description:
+      "A diario se nos presentan situaciones jurídicas difíciles de abordar, muchas veces de entender o simplemente de concluir.",
+    subareas: [
+      {
+        title: "Sucesiones",
+        icon: Home,
+        description:
+          "¿Alguna vez te has preguntado qué sucede con los bienes que tenía quien acaba de fallecer? Nosotros te guiamos en todo el proceso sucesoral.",
+      },
+      {
+        title: "Tutelas",
+        icon: Shield,
+        description:
+          "¿Sientes que tus derechos no son respetados? Trabajamos en favor de tus derechos constitucionales fundamentales.",
+      },
+      {
+        title: "Derecho Laboral",
+        icon: Users,
+        description:
+          "¿Tienes dudas si tu despido fue sin justa causa? ¿Aún no pagan tus derechos prestacionales de retiro? ¡Representamos tus derechos como colaborador!",
+      },
+      {
+        title: "Procesos Ejecutivos",
+        icon: Gavel,
+        description:
+          "Creación, diligenciamiento y cobro de títulos valores. Expande tus conceptos jurídicos.",
+      },
+      {
+        title: "Asuntos Agrarios",
+        icon: Landmark,
+        details: [
+          "Titulación de baldíos",
+          "Extinción del derecho de dominio",
+          "Clarificación de la propiedad",
+        ],
+      },
+    ],
+  },
+];
+
+const handleWhatsAppRedirect = (areaName: string) => {
+  const phoneNumber = "573154395316";
+  const text = `Necesito asesoría sobre ${areaName}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, "_blank");
+};
+
+const goToContact = () => {
+  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+};
+---
+
+<section id="areas-practica" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Áreas de Práctica
+      </h2>
+      <p class="text-xl text-law-text max-w-3xl mx-auto">
+        Nuestro modelo de negocio abarca 2 líneas de acción especializadas,
+        diseñadas para proteger tu activo más valioso: <strong
+          >¡Tus sueños!</strong
+        >
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+      {
+        areas.map((area) => (
+          <div class="space-y-6">
+            <div class="text-center">
+              <div class="inline-flex items-center justify-center w-16 h-16 bg-law-primary rounded-full mb-4">
+                <Building2 className="h-8 w-8 text-law-button-text" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                {area.title}
+              </h3>
+              <p class="text-law-text">{area.description}</p>
+            </div>
+
+            <div class="grid gap-4">
+              {area.subareas.map((subarea) => (
+                <Card
+                  className="border-l-4 border-l-law-primary practice-card cursor-pointer relative"
+                  onClick={() => handleWhatsAppRedirect(subarea.title)}
+                >
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center text-lg">
+                      <Users className="h-5 w-5 text-law-primary mr-2" />
+                      {subarea.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-law-text mb-3">
+                      {subarea.description}
+                    </CardDescription>
+                    <ul class="text-sm text-law-text space-y-1">
+                      {subarea.details?.map((detail) => (
+                        <li>• {detail}</li>
+                      ))}
+                    </ul>
+                    <div class="hover-message mt-4 bg-law-primary text-law-button-text rounded-lg p-3 flex items-center justify-center">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      <span class="font-medium">Te asesoramos</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="text-center bg-white p-8 rounded-xl shadow-sm">
+      <h3 class="text-xl font-bold text-gray-900 mb-4">
+        Cada proceso es diferente... Cada situación merece un plan de acción
+      </h3>
+      <p class="text-law-text mb-6">
+        Realizamos tu diagnóstico jurídico para conocer a profundidad tu
+        situación y necesidad legal.
+        <br />
+        <strong>¡QUEREMOS SER TU ALIADO!</strong>
+      </p>
+      <Button
+        onClick={goToContact}
+        className="bg-law-primary hover:bg-law-primary/90 text-law-button-text px-8 py-3 rounded-lg font-medium transition-colors text-lg"
+      >
+        Cotiza Con Nosotros
+      </Button>
+    </div>
+  </div>
+</section>

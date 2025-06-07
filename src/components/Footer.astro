@@ -1,101 +1,122 @@
----
-import Logo from "@/images/logo.png";
-import { Image } from "astro:assets";
-import { Globe, Phone, Instagram } from "lucide-react";
----
-
-<footer id="contact" class="bg-primary text-white py-16">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<footer class="bg-law-primary text-law-button-text">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid md:grid-cols-4 gap-8">
-      <div>
-        <div class="flex items-center space-x-2 mb-4">
-          <Image
-            src={Logo}
-            alt="Kosmo Logo"
-            width={72}
-            height={72}
-            class="rounded-lg w-9 h-9"
-          />
+      <!-- Logo y descripción -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2">
+          <svg
+            class="h-8 w-8"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 11h18M3 11c0-4.418 3.582-8 8-8s8 3.582 8 8M3 11c0 4.418 3.582 8 8 8s8-3.582 8-8"
+            ></path>
+          </svg>
           <span class="text-xl font-bold">Ambiente Legal</span>
         </div>
-        <p class="text-gray-400 mb-4">
-          Abogados especializados en Derecho Empresarial y Corporativo
+        <p class="text-law-button-text/80 text-sm">
+          Abogados & Consultores especializados en Derecho Empresarial y
+          Corporativo. Más de 20 años de experiencia protegiendo tu activo más
+          valioso: ¡Tus sueños!
         </p>
-        {
-          (
-            <div class="flex space-x-4">
-              <a
-                href="https://www.instagram.com/ambientelegalco/"
-                class="text-gray-400 hover:text-white transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
-          )
-        }
+        <a
+          href="https://wa.me/573154395316?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales."
+          target="_blank"
+          class="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors"
+        >
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-3.8-11.4L17 5l-1.5 3.5 3.5-1.5 1 .4z"
+            ></path>
+          </svg>
+          <span class="text-sm font-medium">WhatsApp</span>
+        </a>
       </div>
 
+      <!-- Servicios -->
       <div>
-        <h3 class="font-semibold mb-4">Menu</h3>
-        <ul class="space-y-2 text-gray-400">
-          <li>
-            <a href="#features" class="hover:text-white transition-colors">
-              Características
-            </a>
-          </li>
-          <li>
-            <a href="#pricing" class="hover:text-white transition-colors">
-              Precios
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/sanji-pos/starter/releases/latest/download/kosmo-gateway.exe"
-              class="hover:text-white transition-colors"
-            >
-              Descargar
-            </a>
-          </li>
+        <h3 class="font-bold mb-4">Servicios</h3>
+        <ul class="space-y-2 text-sm text-law-button-text/80">
+          <li>Constitución de Sociedades</li>
+          <li>Derecho Corporativo</li>
+          <li>Contratos Empresariales</li>
+          <li>Asesoría para Emprendedores</li>
+          <li>Contratos Personales</li>
+          <li>Consultoría Comercial</li>
         </ul>
       </div>
 
+      <!-- Áreas de Práctica -->
       <div>
-        <h3 class="font-semibold mb-4">Contacto</h3>
-        <ul class="space-y-2 text-gray-400">
-          {
-            /* <li class="flex items-center">
-            <Mail className="w-4 h-4 mr-2" />
-            info@kosmopos.com
-          </li> */
-          }
-          <li class="flex items-center">
-            <Phone className="w-4 h-4 mr-2" />
-            <a
-              href="tel:+573154395316"
-              class="hover:text-white transition-colors"
-            >
-              +57 315 439 5316
-            </a>
-          </li>
-          <li class="flex items-center">
-            <Globe className="w-4 h-4 mr-2" />
-            <a
-              href="https://ambientelegal.co"
-              class="hover:text-white transition-colors"
-            >
-              ambientelegal.co
-            </a>
-          </li>
+        <h3 class="font-bold mb-4">Áreas de Práctica</h3>
+        <ul class="space-y-2 text-sm text-law-button-text/80">
+          <li>Personas Jurídicas</li>
+          <li>Personas Naturales</li>
+          <li>Derecho Empresarial</li>
+          <li>Derecho Corporativo</li>
+          <li>Compliance</li>
+          <li>Propiedad Intelectual</li>
         </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h3 class="font-bold mb-4">Contacto</h3>
+        <div class="space-y-3 text-sm text-law-button-text/80">
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-base">call</span>
+            <span>+57 315 439 5316</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-base">mail</span>
+            <span>ambientelegalco@gmail.com</span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <span class="material-symbols-outlined text-base mt-0.5"
+              >location_on</span
+            >
+            <span>
+              Carrera 11 #93-07, Oficina 501<br />
+              Bogotá, Colombia
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div
-      class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
-    >
-      <p class="text-gray-400 text-sm">
-        © {new Date().getFullYear()} Ambiente Legal. Todos los derechos reservados.
-      </p>
+    <div class="border-t border-law-button-text/20 mt-8 pt-8">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <div class="text-sm text-law-button-text/80">
+          &copy; {new Date().getFullYear()} Ambiente Legal - Abogados & Consultores.
+          Todos los derechos reservados.
+        </div>
+        <div class="flex space-x-6 text-sm text-law-button-text/80">
+          <a href="#" class="hover:text-law-button-text transition-colors"
+            >Política de Privacidad</a
+          >
+          <a href="#" class="hover:text-law-button-text transition-colors"
+            >Términos de Servicio</a
+          >
+          <a href="#" class="hover:text-law-button-text transition-colors"
+            >Aviso Legal</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </footer>

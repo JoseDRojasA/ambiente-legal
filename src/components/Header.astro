@@ -1,106 +1,117 @@
----
-import Logo from "@/images/logo.png";
-import { Image } from "astro:assets";
-import { Menu } from "lucide-react";
-
-const links = [
-  { href: "/#about-us", label: "Nosotros" },
-  { href: "/#practice-areas", label: "Áreas de práctica" },
-  { href: "/#clients", label: "Clientes" },
-  { href: "/#contact", label: "Contacto" },
-];
----
-
-<header
-  class="border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50 w-full"
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg"
 >
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-3 md:py-4">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <Image
-          src={Logo}
-          alt="Ambiente legal Logo"
-          width={72}
-          height={72}
-          class="rounded-lg w-9 h-9"
-          loading="eager"
-        />
-        <span class="text-xl font-bold text-gray-900">Ambiente legal </span>
-      </a>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-2">
+        <svg
+          class="h-8 w-8 text-law-primary"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16 8c0-2.21-1.79-4-4-4s-4 1.79-4 4v4a4 4 0 1 0 8 0V8z"></path>
+        </svg>
+        <span class="text-xl font-bold text-law-primary">Ambiente Legal</span>
+      </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
-        {
-          links.map((link) => (
-            <a
-              href={link.href}
-              class="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm lg:text-base"
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          href="#inicio"
+          class="text-law-text hover:text-law-primary transition-colors font-medium"
+          >Inicio</a
+        >
+        <a
+          href="#sobre-nosotros"
+          class="text-law-text hover:text-law-primary transition-colors font-medium"
+          >Sobre Nosotros</a
+        >
+        <a
+          href="#areas-practica"
+          class="text-law-text hover:text-law-primary transition-colors font-medium"
+          >Áreas de Práctica</a
+        >
+        <a
+          href="#clientes"
+          class="text-law-text hover:text-law-primary transition-colors font-medium"
+          >Nuestros Clientes</a
+        >
+        <a
+          href="#contacto"
+          class="text-law-text hover:text-law-primary transition-colors font-medium"
+          >Contacto</a
+        >
+        <a
+          href="#contacto"
+          class="bg-law-primary hover:bg-law-primary/90 text-law-button-text px-4 py-2 rounded-md font-medium"
+          >Consulta Gratuita</a
+        >
+      </div>
 
-      <!-- Mobile menu button -->
-      <button
-        id="menu-toggle"
-        class="cursor-pointer md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <Menu />
-      </button>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <input type="checkbox" id="menu-toggle" class="peer hidden" />
+        <label
+          for="menu-toggle"
+          class="cursor-pointer text-law-text hover:text-law-primary"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </label>
+      </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div
-      id="mobile-menu"
-      class="hidden md:hidden pb-4 transition-all duration-300 ease-in-out"
-    >
-      <div class="flex flex-col space-y-3 mt-2">
-        {
-          links.map((link) => (
-            <a
-              href={link.href}
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))
-        }
+    <!-- Mobile Menu -->
+    <div class="peer-checked:block hidden md:hidden bg-white border-t">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a
+          href="#inicio"
+          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+          >Inicio</a
+        >
+        <a
+          href="#sobre-nosotros"
+          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+          >Sobre Nosotros</a
+        >
+        <a
+          href="#areas-practica"
+          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+          >Áreas de Práctica</a
+        >
+        <a
+          href="#clientes"
+          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+          >Nuestros Clientes</a
+        >
+        <a
+          href="#contacto"
+          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+          >Contacto</a
+        >
+        <div class="px-3 py-2">
+          <a
+            href="#contacto"
+            class="block w-full bg-law-primary hover:bg-law-primary/90 text-law-button-text px-4 py-2 rounded-md font-medium text-center"
+            >Consulta Gratuita</a
+          >
+        </div>
       </div>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuButton = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      if (menuButton && mobileMenu) {
-        menuButton.addEventListener("click", () => {
-          const isExpanded =
-            menuButton.getAttribute("aria-expanded") === "true";
-          menuButton.setAttribute("aria-expanded", String(!isExpanded));
-          mobileMenu.classList.toggle("hidden");
-        });
-      }
-    });
-  </script>
-</header>
-
-<style>
-  /* Smooth transitions for mobile menu */
-  #mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-  }
-
-  #mobile-menu:not(.hidden) {
-    max-height: 500px; /* Adjust based on your content */
-  }
-</style>
+</nav>

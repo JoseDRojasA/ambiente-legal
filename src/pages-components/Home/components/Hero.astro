@@ -1,7 +1,18 @@
+---
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Shield, Users, Award, Scale } from "lucide-react";
+
+const scrollToContact = () => {
+  const element = document.getElementById("contacto");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+---
+
 <section id="inicio" class="pt-16 bg-gradient-to-br from-gray-50 to-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Left Content -->
       <div class="space-y-8">
         <div class="space-y-4">
           <div
@@ -24,86 +35,46 @@
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="#contacto"
-            class="inline-flex items-center justify-center bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3 rounded-md"
+          <Button
+            onClick={scrollToContact}
+            size="lg"
+            className="bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3"
           >
             Consulta Gratuita
-            <svg
-              class="ml-2 h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-          <a
-            href="#sobre-nosotros"
-            class="inline-flex items-center justify-center border border-law-primary text-law-primary hover:bg-law-primary/5 text-lg px-8 py-3 rounded-md"
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() =>
+              document
+                .getElementById("sobre-nosotros")
+                ?.scrollIntoView({ behavior: "smooth" })}
+            className="text-law-primary border-law-primary hover:bg-law-primary/5 text-lg px-8 py-3"
           >
             Conocer Más
-          </a>
+          </Button>
         </div>
 
         <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
           <div class="text-center">
-            <svg
-              class="h-8 w-8 text-law-primary mx-auto mb-2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 11c0 1.657-2 3-2 3s-2-1.343-2-3a2 2 0 1 1 4 0z"></path>
-            </svg>
+            <Shield className="h-8 w-8 text-law-primary mx-auto mb-2" />
             <div class="text-2xl font-bold text-gray-900">20+</div>
             <div class="text-sm text-law-text">Años de Experiencia</div>
           </div>
           <div class="text-center">
-            <svg
-              class="h-8 w-8 text-law-primary mx-auto mb-2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87M16 3.13a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM21 3.13a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"
-              ></path>
-            </svg>
+            <Users className="h-8 w-8 text-law-primary mx-auto mb-2" />
             <div class="text-2xl font-bold text-gray-900">500+</div>
             <div class="text-sm text-law-text">Clientes Satisfechos</div>
           </div>
           <div class="text-center">
-            <svg
-              class="h-8 w-8 text-law-primary mx-auto mb-2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8 21h8M12 3v18m0 0l-4-4m4 4l4-4"></path>
-            </svg>
+            <Award className="h-8 w-8 text-law-primary mx-auto mb-2" />
             <div class="text-2xl font-bold text-gray-900">98%</div>
             <div class="text-sm text-law-text">Casos Exitosos</div>
           </div>
         </div>
       </div>
 
-      <!-- Right Content -->
       <div class="relative">
         <div
           class="aspect-square bg-gradient-to-br from-law-primary/20 to-law-primary/5 rounded-2xl p-8"
@@ -121,19 +92,7 @@
             <div
               class="w-12 h-12 bg-law-primary rounded-full flex items-center justify-center"
             >
-              <svg
-                class="h-6 w-6 text-law-button-text"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16 8c0-2.21-1.79-4-4-4s-4 1.79-4 4v4a4 4 0 1 0 8 0V8z"
-                ></path>
-              </svg>
+              <Scale className="h-6 w-6 text-law-button-text" />
             </div>
             <div>
               <div class="font-semibold text-gray-900">

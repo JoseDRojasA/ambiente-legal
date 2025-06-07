@@ -1,5 +1,13 @@
 ---
 import { Menu, Scale } from "lucide-react";
+
+const menuItems = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#sobre-nosotros", label: "Sobre Nosotros" },
+  { href: "#areas-practica", label: "Áreas de Práctica" },
+  { href: "#clientes", label: "Nuestros Clientes" },
+  { href: "#contacto", label: "Contacto" },
+];
 ---
 
 <nav
@@ -12,88 +20,92 @@ import { Menu, Scale } from "lucide-react";
         <span class="text-xl font-bold text-law-primary">Ambiente Legal</span>
       </div>
 
-      <!-- Desktop Menu -->
+      {/* Desktop Menu */}
       <div class="hidden md:flex items-center space-x-8">
-        <a
-          href="#inicio"
-          class="text-law-text hover:text-law-primary transition-colors font-medium"
-          >Inicio</a
-        >
-        <a
-          href="#sobre-nosotros"
-          class="text-law-text hover:text-law-primary transition-colors font-medium"
-          >Sobre Nosotros</a
-        >
-        <a
-          href="#areas-practica"
-          class="text-law-text hover:text-law-primary transition-colors font-medium"
-          >Áreas de Práctica</a
-        >
-        <a
-          href="#clientes"
-          class="text-law-text hover:text-law-primary transition-colors font-medium"
-          >Nuestros Clientes</a
-        >
-        <a
-          href="#contacto"
-          class="text-law-text hover:text-law-primary transition-colors font-medium"
-          >Contacto</a
-        >
-        <a
-          href="#contacto"
-          class="bg-law-primary hover:bg-law-primary/90 text-law-button-text px-4 py-2 rounded-md font-medium"
-          >Consulta Gratuita</a
-        >
+        {
+          menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-law-text hover:text-law-primary transition-colors font-medium"
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </div>
 
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden">
-        <input type="checkbox" id="menu-toggle" class="peer hidden" />
-        <label
-          for="menu-toggle"
-          class="cursor-pointer text-law-text hover:text-law-primary"
-        >
-          <Menu className="h-6 w-6" />
-        </label>
-      </div>
+      {/* Mobile Menu Button */}
+      <button
+        id="menu-toggle"
+        class="md:hidden cursor-pointer p-2 rounded-md text-law-text hover:text-law-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-law-primary"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Menu className="h-6 w-6" />
+      </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="peer-checked:block hidden md:hidden bg-white border-t">
+    {/* Mobile Menu */}
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden bg-white border-t overflow-hidden transition-[max-height] duration-300 ease-in-out"
+      style="max-height: 0"
+    >
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a
-          href="#inicio"
-          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
-          >Inicio</a
-        >
-        <a
-          href="#sobre-nosotros"
-          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
-          >Sobre Nosotros</a
-        >
-        <a
-          href="#areas-practica"
-          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
-          >Áreas de Práctica</a
-        >
-        <a
-          href="#clientes"
-          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
-          >Nuestros Clientes</a
-        >
-        <a
-          href="#contacto"
-          class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
-          >Contacto</a
-        >
+        {
+          menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="block w-full text-left px-3 py-2 text-law-text hover:text-law-primary font-medium"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+
         <div class="px-3 py-2">
           <a
             href="#contacto"
             class="block w-full bg-law-primary hover:bg-law-primary/90 text-law-button-text px-4 py-2 rounded-md font-medium text-center"
-            >Consulta Gratuita</a
           >
+            Consulta Gratuita
+          </a>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuButton = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", () => {
+          const isExpanded =
+            menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isExpanded));
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+            // Animate max-height to show smoothly
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+          } else {
+            // Animate max-height to hide smoothly
+            mobileMenu.style.maxHeight = "0";
+            // After transition, add hidden class
+            mobileMenu.addEventListener(
+              "transitionend",
+              () => {
+                if (mobileMenu.style.maxHeight === "0px") {
+                  mobileMenu.classList.add("hidden");
+                }
+              },
+              { once: true }
+            );
+          }
+        });
+      }
+    });
+  </script>
 </nav>

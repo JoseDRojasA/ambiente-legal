@@ -80,7 +80,6 @@ import { Menu } from "lucide-react";
       const mobileMenu = document.getElementById("mobile-menu");
       const menuLinks = mobileMenu?.querySelectorAll("a[href]");
 
-      // Function to close the mobile menu
       const closeMobileMenu = () => {
         if (!mobileMenu) return;
 
@@ -99,7 +98,6 @@ import { Menu } from "lucide-react";
       };
 
       if (menuButton && mobileMenu) {
-        // Toggle menu when clicking the menu button
         menuButton.addEventListener("click", () => {
           const isExpanded =
             menuButton.getAttribute("aria-expanded") === "true";
@@ -107,14 +105,12 @@ import { Menu } from "lucide-react";
 
           if (mobileMenu.classList.contains("hidden")) {
             mobileMenu.classList.remove("hidden");
-            // Animate max-height to show smoothly
             mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
           } else {
             closeMobileMenu();
           }
         });
 
-        // Close menu when clicking on a menu item
         menuLinks?.forEach((link) => {
           link.addEventListener("click", closeMobileMenu);
         });

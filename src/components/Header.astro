@@ -1,6 +1,8 @@
 ---
+import Logo from "@/images/logo.png";
 import { MENU_ITEMS } from "@/constants/menu-items";
-import { Menu, Scale } from "lucide-react";
+import { Image } from "astro:assets";
+import { Menu } from "lucide-react";
 ---
 
 <nav
@@ -9,7 +11,7 @@ import { Menu, Scale } from "lucide-react";
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center space-x-2">
-        <Scale className="h-8 w-8 text-law-primary" />
+        <Image src={Logo} alt="Logo" class="h-8 w-8" />
         <span class="text-xl font-bold text-law-primary">Ambiente Legal</span>
       </div>
 

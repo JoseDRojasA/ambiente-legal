@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 import {
   Briefcase,
   Building2,
@@ -126,17 +127,6 @@ const areas = [
     ],
   },
 ];
-
-const handleWhatsAppRedirect = (areaName: string) => {
-  const phoneNumber = "573154395316";
-  const text = `Necesito asesoría sobre ${areaName}`;
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-  window.open(whatsappUrl, "_blank");
-};
-
-const goToContact = () => {
-  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
-};
 ---
 
 <section id="areas-practica" class="py-20 bg-gray-50">
@@ -169,31 +159,35 @@ const goToContact = () => {
 
             <div class="grid gap-4">
               {area.subareas.map((subarea) => (
-                <Card
-                  className="border-l-4 border-l-law-primary practice-card cursor-pointer relative gap-4"
-                  onClick={() => handleWhatsAppRedirect(subarea.title)}
+                <a
+                  href={generateWhatsAppLink(
+                    `Necesito asesoría sobre ${subarea.title}`
+                  )}
+                  target="_blank"
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg">
-                      <Users className="h-5 w-5 text-law-primary mr-2" />
-                      {subarea.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-law-text mb-3">
-                      {subarea.description}
-                    </CardDescription>
-                    <ul class="text-sm text-law-text space-y-1">
-                      {subarea.details?.map((detail) => (
-                        <li>• {detail}</li>
-                      ))}
-                    </ul>
-                    <div class="hover-message mt-4 bg-law-primary text-law-button-text rounded-lg p-3 flex items-center justify-center">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      <span class="font-medium">Te asesoramos</span>
-                    </div>
-                  </CardContent>
-                </Card>
+                  <Card className="border-l-4 border-l-law-primary practice-card cursor-pointer relative gap-4">
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-lg">
+                        <Users className="h-5 w-5 text-law-primary mr-2" />
+                        {subarea.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-law-text mb-3">
+                        {subarea.description}
+                      </CardDescription>
+                      <ul class="text-sm text-law-text space-y-1">
+                        {subarea.details?.map((detail) => (
+                          <li>• {detail}</li>
+                        ))}
+                      </ul>
+                      <div class="hover-message mt-4 bg-law-primary text-law-button-text rounded-lg p-3 flex items-center justify-center">
+                        <MessageCircle className="h-5 w-5 mr-2" />
+                        <span class="font-medium">Te asesoramos</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
           </div>
@@ -211,12 +205,13 @@ const goToContact = () => {
         <br />
         <strong>¡QUEREMOS SER TU ALIADO!</strong>
       </p>
-      <Button
-        onClick={goToContact}
-        className="bg-law-primary hover:bg-law-primary/90 text-law-button-text px-8 py-3 rounded-lg font-medium transition-colors text-lg"
-      >
-        Cotiza Con Nosotros
-      </Button>
+      <a href={generateWhatsAppLink("Necesito cotizar")} target="_blank">
+        <Button
+          className="bg-law-primary hover:bg-law-primary/90 text-law-button-text px-8 py-3 rounded-lg font-medium transition-colors text-lg cursor-pointer"
+        >
+          Cotiza Con Nosotros
+        </Button>
+      </a>
     </div>
   </div>
 </section>

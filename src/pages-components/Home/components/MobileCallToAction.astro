@@ -1,5 +1,6 @@
 ---
 import { Button } from "@/components/ui/button";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 import { ArrowRight } from "lucide-react";
 
 const structuredData = {
@@ -9,9 +10,8 @@ const structuredData = {
   url: "https://ambientelegal.com",
   potentialAction: {
     "@type": "SearchAction",
-    target:
-      "https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20quiero%20ver%20una%20demo%20de%20Ambiente legal",
-    query: "Solicitar ayuda de Ambiente legal",
+    target: generateWhatsAppLink("Me gustaría agendar una cita"),
+    query: "Agendar una cita con Ambiente legal",
   },
 };
 ---
@@ -23,11 +23,11 @@ const structuredData = {
   aria-label="Acceso rápido a solicitud de demo"
 >
   <a
-    href="https://api.whatsapp.com/send?phone=573154395316&text=Hola,%20quiero%20ver%20una%20demo%20de%20Ambiente legal"
+    href={generateWhatsAppLink("Me gustaría agendar una cita")}
     target="_blank"
     rel="noopener noreferrer nofollow"
-    aria-label="Solicitar una cotización de Ambiente legal por WhatsApp. Se abrirá en una nueva pestaña."
-    title="Solicita una cotización de Ambiente legal"
+    aria-label="Agendar una cita con Ambiente legal por WhatsApp. Se abrirá en una nueva pestaña."
+    title="Agenda una cita con Ambiente legal"
     class="cursor-pointer w-full"
     data-cta="mobile-demo-request"
     itemscope
@@ -39,8 +39,8 @@ const structuredData = {
 
     <Button
       size="lg"
-      className="cursor-pointer bg-primary hover:bg-primary text-lg px-8 py-3 w-full"
-      aria-label="Solicitar ayuda de Ambiente legal"
+      className="cursor-pointer bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg px-8 py-3 w-full"
+      aria-label="Agendar una cita con Ambiente legal"
     >
       <span itemprop="name">Agendar una cita</span>
       <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />

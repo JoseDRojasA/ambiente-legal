@@ -1,5 +1,5 @@
 ---
-import { Button } from "@/components/ui/button";
+import { CustomQuery } from "@/components/custom-query";
 import {
   Card,
   CardContent,
@@ -7,20 +7,34 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+
+const handleWhatsAppRedirect = () => {
+  const message = document.getElementById("message") as HTMLTextAreaElement;
+  const text =
+    message?.value ||
+    "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
+  const whatsappUrl = generateWhatsAppLink(text);
+  window.open(whatsappUrl, "_blank");
+};
 ---
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const handleWhatsAppRedirect = () => {
-      const message = document.getElementById("custom-query-message");
-      const text =
-        message?.value ||
-        "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
-      const encodedText = encodeURIComponent(text);
-      window.open(`https://wa.me/573154395316?text=${encodedText}`, "_blank");
-    };
+<script>
+  import { generateWhatsAppLink } from "@/utils/generate-whatsapp-link";
 
+  const handleWhatsAppRedirect = () => {
+    const message = document.getElementById(
+      "custom-query-message"
+    ) as HTMLTextAreaElement;
+    const text =
+      message?.value ||
+      "¡Hola! Me gustaría obtener más información sobre sus servicios legales.";
+    const whatsappUrl = generateWhatsAppLink(text);
+    window.open(whatsappUrl, "_blank");
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
     document
       .getElementById("simple-button")
       ?.addEventListener("click", handleWhatsAppRedirect);
@@ -55,31 +69,9 @@ import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div>
-              <label
-                for="custom-query-message"
-                class="block text-sm font-medium text-gray-900 mb-2"
-              >
-                Describe tu consulta
-              </label>
-              <textarea
-                id="custom-query-message"
-                rows={6}
-                placeholder="Ejemplo: Necesito asesoría para constituir una SAS, tengo dudas sobre los requisitos y documentos necesarios..."
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-law-primary focus:border-transparent resize-none"
-              ></textarea>
-            </div>
+            <CustomQuery client:load />
 
-            <Button
-              id="custom-query-button"
-              className="w-full bg-law-primary hover:bg-law-primary/90 text-law-button-text text-lg py-3 cursor-pointer"
-              size="lg"
-            >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Enviar Consulta por WhatsApp
-            </Button>
-
-            <p class="text-sm text-law-text text-center">
+            <p class="text-sm text-law-text text-center mt-6">
               Te responderemos inmediatamente y programaremos una consulta
               gratuita
             </p>

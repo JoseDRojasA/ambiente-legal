@@ -1,5 +1,7 @@
 ---
 import { Quote, Star } from "lucide-react";
+import CloudsImage from "@/images/clouds-2.webp";
+import { Image } from "astro:assets";
 const testimonials = [
   {
     name: "María González",
@@ -43,8 +45,18 @@ const clientLogos = [
 ];
 ---
 
-<section id="clientes" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="clientes" class="py-20 relative overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-white/90"></div>
+    <Image
+      src={CloudsImage}
+      alt="Fondo de nubes"
+      class="w-full h-full object-cover object-center opacity-20"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Algunos de nuestros clientes
